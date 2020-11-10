@@ -1,0 +1,59 @@
+ public bool(t item)
+ {
+    LinkinListNode previous = null;
+    LinkinListNode current = _nead;
+
+    // 1: Пустой список: ничего не делать.
+    // 2: Один элемент: установить previous = null
+    // 3: Несколько элементов:
+    //    a: Удаляемый элемент первый.
+    //    b: Удаляемый элемент в середине или конце.
+
+    while (current !=null)
+     {
+         if (current.Value. Equals(item))
+         {
+              // Узел в середине или в конце.
+              if (previous != null)
+              {
+                  // Случай 3b
+
+                  // До:    Head -> 3 -> 5 -> null
+                  // После: Head -> 3 ------> null
+                  previous.Next = current.Next;
+
+                  // Если в конце, то меняем _tail
+                  if (current. next == null)
+                  {
+                      _tail = previous
+                  }
+              }
+              else
+              {
+                  // Случай 2 или 3a
+
+                  // До:    Head -> 3 -> 5
+                  // После: Head ------> 5
+
+                  // Head -> 3 -> 5
+                  // Head ------> null
+                  _head = _head.Next;
+
+                  // Список теперь пустой?
+                  if (_head == null)
+                  {
+                      _tail = null;
+                  }
+                  }
+
+                  Count--;
+
+                   return true;
+              }
+
+              previous = current;
+              current = current.Next;
+         }
+
+         return false;
+ }
