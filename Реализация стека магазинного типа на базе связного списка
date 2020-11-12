@@ -1,0 +1,9 @@
+class UF
+  {
+    private:
+      // Программный код, зависящий от реализации
+    public:
+      UF(int);
+      int find(int, int);
+      void unite(int, int);
+  };
